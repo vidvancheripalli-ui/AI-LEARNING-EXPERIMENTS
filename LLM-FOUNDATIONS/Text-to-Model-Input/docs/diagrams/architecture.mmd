@@ -1,0 +1,23 @@
+flowchart TD
+    A[Client] --> B[FastAPI Application]
+
+    B --> C{Endpoint}
+
+    C -->|GET /health| D[Health Check]
+    D --> E[Healthy Response]
+
+    C -->|POST /tokenize| F[Tokenizer]
+    F --> G[Token IDs]
+    G --> H[Token / ID Response]
+
+    C -->|POST /model-input| I[Tokenizer]
+    I --> J[Token IDs]
+    J --> K[Input Processor]
+    K --> L[Padded Token IDs]
+    K --> M[Attention Mask]
+    L --> N[Embedding Layer]
+    N --> O[Token Embeddings]
+    O --> P[Positional Embedding]
+    P --> Q[Final Model Input]
+    M --> Q
+    Q --> R[Model-Input Response]

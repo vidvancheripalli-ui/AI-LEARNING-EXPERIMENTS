@@ -1,0 +1,16 @@
+flowchart LR
+    A[Raw Text] --> B[Tokenizer]
+    B --> C[Token IDs]
+
+    C --> D[Padding / Truncation]
+    D --> E[Padded Token IDs]
+    D --> F[Attention Mask]
+
+    E --> G[Embedding Lookup]
+    G --> H[Token Embeddings]
+
+    H --> I[Add Positional Information]
+    I --> J[Final Model Input]
+
+    F --> J
+    J --> K[Ready for Model Processing]
